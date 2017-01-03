@@ -8,7 +8,12 @@
     <div class="address-box">
       <form class="event-box" ng-submit="meep.newEvent(meep.event)">
         <p>
-          <label>Category</label> <input class="addressField" type="text" ng-model="meep.event.category">
+          <label>Category</label> <select class="addressSelect" ng-model="meep.event.category">
+            <option>Entertainment</option>
+            <option>Food</option>
+            <option>Arts</option>
+            <option>Concert</option>
+          </select>
           <label>Event Title</label> <input class="addressField" type='text' ng-model = "meep.event.title">
           <label>Event Details</label> <input class="addressField" type="text" ng-model = "meep.event.detail">
           <label>Event Date</label> <input class="addressField" type="date" ng-model ="meep.event.date">
@@ -41,6 +46,9 @@
     </div>
 
   </div>
+  <div class="filterInput">
+<input placeholder="Search" type="text" ng-model="eventFilter" id="filter">
+  </div>
     <div class="table-data">
       <table>
         <thead>
@@ -51,9 +59,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat ="eventi in meep.events | orderBy: 'date' " ng-mouseover = "meep.hoverIn(eventi)" ng-mouseleave="meep.hoverOut()" >
+          <tr ng-repeat ="eventi in meep.events | filter:eventFilter | orderBy: 'date' " ng-mouseover = "meep.hoverIn(eventi)" ng-mouseleave="meep.hoverOut()" >
             <td id="categoryRow">{{eventi.category}}</td>
-            <td id= "titleRow">{{eventi.title}}<a href = "" class="editButton" ng-class="{'showDetails': meep.displayFlag }" ng-click="meep.editShow(eventi)">edit</a> <button type="button" name="delete" class="deleteButton" ng-class="{'showDetails': meep.displayFlag }" ng-click="meep.deleteEvent(eventi._id)">del</button></td>
+            <td id= "titleRow">{{eventi.title}}<a href = "" class="editButton" ng-class="{'showDetails': meep.displayFlag }" ng-click="meep.editShow(eventi)">edit </a> <button type="button" name="delete" class="deleteButton" ng-class="{'showDetails': meep.displayFlag }" ng-click="meep.deleteEvent(eventi._id)">del</button></td>
             <td id= "dateRow">{{eventi.date | date: 'longDate'}} </td>
           </tr>
         </tbody>

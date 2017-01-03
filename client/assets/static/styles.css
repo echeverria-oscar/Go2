@@ -55,14 +55,35 @@ body {
     height: 25px;
     margin-bottom: 20px;
     margin-left: 10px;
+    border-radius: 5px;
   }
   .address-box label {
       display: table-cell;
       margin-left: 10px;
     }
 
+  .addressSelect {
+    width: 277px;
+    margin-left: 10px;
+    height: 29px;
+    margin-bottom: 20px;
+  }
 
+/*-------------------------filter box*/
 
+.filterInput{
+  position: absolute;
+  left: 440px;
+  top: 45px;
+  /*font-size: 30px;*/
+}
+
+  #filter{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+
+  }
 
 
 /*-----------------------Table data information that is displaying*/
@@ -111,7 +132,7 @@ body {
       visibility: hidden;
 
 
-      margin-left: 10px;
+      margin-left: 20px;
       height: 21px;
       width: 33px;
       /*background-color: blue;*/
@@ -121,7 +142,7 @@ body {
     }
 
     .deleteButton{
-      /*visibility: hidden;*/
+      visibility: hidden;
       margin-left: 3px;
       height: 21px;
       width: 33px;
@@ -129,7 +150,7 @@ body {
       /*font-size:  2px;*/
 
       border-radius: 7px;
-      background: url('trash.png');
+      /*background: url('trash.png');*/
       background-position:center;
       background-repeat:no-repeat;
       float: right;
